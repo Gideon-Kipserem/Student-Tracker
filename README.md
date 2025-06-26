@@ -9,6 +9,28 @@ The Student Tracker App is a responsive, single-page web application designed to
 
 ---
 
+## File Structure
+
+```
+Student-Tracker/
+├── index.html
+|
+|
+├──css/
+|   └── styles.css
+|
+|
+├── src/
+│   └── index.js             
+│           
+│          
+├── images/      
+│           
+├── db.json               
+|
+└──  README.md         
+```
+
 ## Features
 
 ### Core Functionalities
