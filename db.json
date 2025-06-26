@@ -1,0 +1,58 @@
+{
+  "students": [
+    {
+      "id": "4",
+      "name": "Titus Moindi",
+      "studentId": "1004",
+      "status": "absent",
+      "location": "library",
+      "activity": "personal studies",
+      "time": "6/26/2025, 3:55:38 PM"
+    },
+    {
+      "id": "5",
+      "name": "Faith Kipyegon",
+      "studentId": "1005",
+      "status": "absent",
+      "location": "library",
+      "activity": "personal studies",
+      "time": "6/26/2025, 3:06:44 PM"
+    },
+    {
+      "id": "57a6",
+      "name": "Eluid Kipchoge",
+      "studentId": "2443",
+      "status": "present",
+      "location": "",
+      "activity": "",
+      "time": ""
+    },
+    {
+      "id": "a731",
+      "name": "Gideon Kimaiyo",
+      "studentId": "1004",
+      "status": "present",
+      "location": "",
+      "activity": "",
+      "time": ""
+    },
+    {
+      "id": "a07b",
+      "name": "Denis Munika",
+      "studentId": "3456",
+      "status": "present",
+      "location": "",
+      "activity": "",
+      "time": ""
+    },
+    {
+      "id": "d7e0",
+      "name": "Oscar Kiprop",
+      "studentId": "6583",
+      "status": "present",
+      "location": "",
+      "activity": "",
+      "time": ""
+    }
+  ]
+}
