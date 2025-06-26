@@ -6,8 +6,8 @@
       "studentId": "1004",
       "status": "absent",
       "location": "library",
-      "activity": "personal studies",
-      "time": "6/26/2025, 3:55:38 PM"
+      "activity": "chemistry",
+      "time": "6/26/2025, 6:32:38 PM"
     },
     {
       "id": "5",
@@ -22,19 +22,19 @@
       "id": "57a6",
       "name": "Eluid Kipchoge",
       "studentId": "2443",
-      "status": "present",
-      "location": "",
-      "activity": "",
-      "time": ""
+      "status": "absent",
+      "location": "library",
+      "activity": "personal studies",
+      "time": "6/26/2025, 5:54:41 PM"
     },
     {
       "id": "a731",
       "name": "Gideon Kimaiyo",
       "studentId": "1004",
-      "status": "present",
-      "location": "",
-      "activity": "",
-      "time": ""
+      "status": "absent",
+      "location": "library",
+      "activity": "personal studies",
+      "time": "6/26/2025, 5:54:54 PM"
     },
     {
       "id": "a07b",

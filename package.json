@@ -1,0 +1,23 @@
+{
+  "name": "student-tracker-api",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "json-server --watch db.json --port 10000"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  },
+  "description": "## Author **[Gideon Kimaiyo]**",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gideon-Kipserem/Student-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gideon-Kipserem/Student-Tracker/issues"
+  },
+  "homepage": "https://github.com/Gideon-Kipserem/Student-Tracker#readme"
+}
