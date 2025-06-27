@@ -1,11 +1,10 @@
-
 # Student Tracker App
 
 ## Author
-**[Gideon Kimaiyo]**
+**Gideon Kimaiyo**
 
 ## Overview
-The Student Tracker App is a responsive, single-page web application designed to help teachers monitor the whereabouts and activities of students within and outside school premises. It leverages a local RESTful API to manage student data, integrates asynchronous JavaScript functionality, and offers real-time interactions, all built using vanilla HTML, CSS, and JavaScript.
+The Student Tracker App is a responsive, single-page web application designed to help teachers monitor the whereabouts and activities of students within and outside school premises. It uses a deployed backend hosted on Render and a dynamic frontend built with vanilla JavaScript.
 
 ---
 
@@ -14,41 +13,32 @@ The Student Tracker App is a responsive, single-page web application designed to
 ```
 Student-Tracker/
 ├── index.html
-|
-|
-├──css/
-|   └── styles.css
-|
-|
+├── css/
+│   └── styles.css
 ├── src/
-│   └── index.js             
-│           
-│          
-├── images/      
-│           
-├── db.json               
-|
-└──  README.md         
+│   └── index.js
+├── images/
+├── db.json
+└── README.md
 ```
 
 ## Features
 
 ### Core Functionalities
-- Single Page Application (SPA): No page reloads or redirects; seamless navigation.
+- Single Page Application (SPA): No reloads or redirects, seamless user experience.
 - JSON Server Integration: RESTful API with GET, POST, PATCH, and DELETE support.
-- Teacher Logging: Teachers can check out students with specific activities, time, and location.
-- Auto Activity Assignment: Automatically assigns an activity based on a local editable timetable.
-- Search and Filter: Search by student name or ID and filter by subject or activity status.
-- Subject and ID Validation: Only valid 4-digit numeric IDs and allowed characters are accepted.
-- Click to Expand Student Details: Toggle detailed views of students by clicking their cards.
-- Mouse Interactions: Enhanced UX with mouseover and mouseout animations.
-- Subject Selection: Enforces correct subject combinations when adding students.
+- Teacher Logging: Check out students with location, activity, and time.
+- Auto Activity Assignment: Based on a local editable timetable.
+- Search and Filter: By name or ID; filter by subject or status.
+- Validations: 4-digit numeric ID check, character restrictions, and unique fields.
+- Expandable Student Cards: Toggle visibility of detailed student information.
+- Subject Selection Rules: Enforces required subject combinations.
+- Responsive UI: Designed for usability on all screen sizes.
 
 ### Advanced Features
-- Confirmation Prompts: Ensure actions like deletion or checkout are confirmed.
-- Input Validations: Ensures that data integrity is maintained with clean and expected formats.
-- Code Structure: Organized into modules for scalability and easier maintenance.
-- Responsive Design: Works across devices with clean layout and clear labels.
+- Confirmation Prompts: For actions like deletion or checkout.
+- Clean Code Structure: Modular and organized.
+- Mouse Events: Enhanced UX through interactivity.
 
 ---
 
@@ -56,32 +46,28 @@ Student-Tracker/
 - HTML5
 - CSS3
 - JavaScript (ES6+)
-- JSON Server (for simulating RESTful API)
+- JSON Server (Render Deployment)
 
 ---
 
-## Setup Instructions
+## Setup Instructions (Local Development)
 
-1. Clone this repository to your local machine:
-
+1. Clone the repository:
    ```bash
    git clone https://github.com/Gideon-Kipserem/student-tracker-app.git
    ```
 
-2. Navigate into the project directory:
-
+2. Navigate into the project folder:
    ```bash
    cd student-tracker-app
    ```
 
 3. Install JSON Server globally if not already installed:
-
    ```bash
    npm install -g json-server
    ```
 
-4. Start the JSON Server:
-
+4. Run the local server:
    ```bash
    json-server --watch db.json
    ```
@@ -91,13 +77,21 @@ Student-Tracker/
 ---
 
 ## Deployment
-This app is deployed and publicly accessible at:  
-[Live Site on Render](https://your-render-url.com)
+
+- **Backend API Only**: [https://json-server-chr3.onrender.com](https://json-server-chr3.onrender.com)
+
+Ensure `index.js` points to this backend API for live use.
 
 ---
 
 ## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+MIT License. See `LICENSE` file for details.
 
 ## Contact
-For questions or contributions, contact the author via GitHub or email.
+For issues or contributions, contact via GitHub.
+  
+  ## email
+  gideonkimaiyo254@gmail.com
+
+  ## github
+Gideon-Kipserem

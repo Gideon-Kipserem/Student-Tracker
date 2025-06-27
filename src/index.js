@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ====== BASE URL & DOM REFERENCES ======
-  const BASE_URL = "http://localhost:3000/students";
+  const BASE_API = "https://json-server-chr3.onrender.com";
+const BASE_URL = `${BASE_API}/students`;
+
 
   const presentList = document.getElementById("present-list");
   const absentList = document.getElementById("absent-list");
