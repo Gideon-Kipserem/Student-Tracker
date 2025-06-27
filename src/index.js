@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ====== BASE URL & DOM REFERENCES ======
-  const BASE_API = "https://json-server-chr3.onrender.com";
-const BASE_URL = `${BASE_API}/students`;
-
+  // ====== ✅ ENVIRONMENT TOGGLE (Fix 2) ======
+  const isProd = window.location.hostname.includes("render");
+  const BASE_API = isProd
+    ? "https://your-render-app.onrender.com"
+    : "http://localhost:3000";
+  const BASE_URL = `${BASE_API}/students`;
 
   const presentList = document.getElementById("present-list");
   const absentList = document.getElementById("absent-list");
@@ -19,7 +21,6 @@ const BASE_URL = `${BASE_API}/students`;
 
   let selectedStudentId = null;
 
-  // ====== LOAD STUDENTS FUNCTION ======
   function loadStudents(query = "") {
     fetch(BASE_URL)
       .then(res => res.json())
@@ -34,6 +35,7 @@ const BASE_URL = `${BASE_API}/students`;
 
         if (filtered.length === 0) {
           presentList.innerHTML = "<li>No students found.</li>";
+          absentList.innerHTML = "<li>No students found.</li>";
           return;
         }
 
@@ -45,10 +47,11 @@ const BASE_URL = `${BASE_API}/students`;
             absentList.appendChild(li);
           }
         });
+
+        console.log("Rendering", filtered.length, "students");
       });
   }
 
-  // ====== CREATE STUDENT LIST ITEM ======
   function createStudentItem(student) {
     const li = document.createElement("li");
     li.className = "student-item";
@@ -121,51 +124,49 @@ const BASE_URL = `${BASE_API}/students`;
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Remove";
     deleteBtn.addEventListener("click", () => {
-      if (confirm("Are you sure you want to remove this student?")) {
+      if (student.id && confirm(`Remove ${student.name}?`)) {
+        console.log("Attempting to delete student with ID:", student.id);
         fetch(`${BASE_URL}/${student.id}`, {
           method: "DELETE"
-        }).then(() => loadStudents(searchInput.value.trim()));
+        }).then(() => {
+          console.log("Deleted successfully. Reloading student list...");
+          searchInput.value = ""; // Clear search input
+          loadStudents();
+        });
       }
     });
     buttons.appendChild(deleteBtn);
 
     li.appendChild(buttons);
-
     return li;
   }
 
-  // ====== FORM SUBMIT: ADD NEW STUDENT ======
   addForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const name = nameInput.value.trim();
     const studentId = idInput.value.trim();
 
-    // === VALIDATE STUDENT ID FORMAT ===
     if (!/^\d{4}$/.test(studentId)) {
       alert("Student ID must be exactly 4 digits.");
       return;
     }
 
-    // === FETCH EXISTING STUDENTS TO VALIDATE UNIQUENESS ===
     fetch(BASE_URL)
       .then(res => res.json())
       .then(students => {
-        //  CHECK FOR DUPLICATE NAME
         const nameExists = students.find(s => s.name.toLowerCase() === name.toLowerCase());
         if (nameExists) {
           alert("Student with this name already exists.");
           return;
         }
 
-        //  CHECK FOR DUPLICATE STUDENT ID — [ADDED FEATURE]
         const idExists = students.find(s => s.studentId === studentId);
         if (idExists) {
           alert("Student ID already exists. Please use a unique 4-digit ID.");
           return;
         }
 
-        //  CREATE NEW STUDENT
         const newStudent = {
           name,
           studentId,
@@ -186,18 +187,14 @@ const BASE_URL = `${BASE_API}/students`;
       });
   });
 
-  // ====== SEARCH FUNCTIONALITY ======
   searchButton.addEventListener("click", () => {
-    const query = searchInput.value.trim();
-    loadStudents(query);
+    loadStudents(searchInput.value.trim());
   });
 
   searchInput.addEventListener("input", () => {
-    const query = searchInput.value.trim();
-    loadStudents(query);
+    loadStudents(searchInput.value.trim());
   });
 
-  // ====== CHECKOUT FORM SUBMIT ======
   checkoutForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -220,7 +217,6 @@ const BASE_URL = `${BASE_API}/students`;
     });
   });
 
-  // ====== MODAL FUNCTIONS ======
   function openModal() {
     checkoutModal.style.display = "flex";
     document.body.classList.add("modal-open");
@@ -234,6 +230,5 @@ const BASE_URL = `${BASE_API}/students`;
 
   window.closeModal = closeModal;
 
-  // ====== INITIAL DATA LOAD ======
   loadStudents();
 });
