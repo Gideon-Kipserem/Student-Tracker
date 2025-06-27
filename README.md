@@ -1,5 +1,11 @@
 # Student Tracker App
 
+
+ **Backend API (JSON Server on Render):**
+[https://json-server-chr3.onrender.com](https://json-server-chr3.onrender.com)
+
+---
+
 ## Author
 **Gideon Kimaiyo**
 
@@ -67,20 +73,14 @@ Student-Tracker/
    npm install -g json-server
    ```
 
-4. Run the local server:
+4. (Optional) Run the local server:
    ```bash
-   json-server --watch db.json
+   json-server --watch db.json --port 3000
    ```
 
+> Make sure to update `BASE_API` in `index.js` to match your environment (local or deployed).
+
 5. Open `index.html` in your browser.
-
----
-
-## Deployment
-
-- **Backend API Only**: [https://json-server-chr3.onrender.com](https://json-server-chr3.onrender.com)
-
-Ensure `index.js` points to this backend API for live use.
 
 ---
 
@@ -89,9 +89,9 @@ MIT License. See `LICENSE` file for details.
 
 ## Contact
 For issues or contributions, contact via GitHub or email.
-  
-  ## Email
-  gideonkimaiyo254@gmail.com
 
-  ## Github
- https://github.com/Gideon-Kipserem
+## Email
+gideonkimaiyo254@gmail.com
+
+## Github
+https://github.com/Gideon-Kipserem
