@@ -24,6 +24,20 @@ h1 {
    font-size: 55px;
 }
 
+
+h2{
+   color: #F5FFFA;
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 800px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style:normal;
+   font-size: 10px;
+
+}
+
+
 form {
   background: #548596;
   padding: 1rem;
