@@ -1,16 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ====== ✅ ENVIRONMENT TOGGLE (Fix 2) ======
-  const isProd = window.location.hostname.includes("render");
-  const BASE_API = isProd
-    ? "https://your-render-app.onrender.com"
-    : "http://localhost:3000";
+ const BASE_API = "https://json-server-chr3.onrender.com";
   const BASE_URL = `${BASE_API}/students`;
+
 
   const presentList = document.getElementById("present-list");
   const absentList = document.getElementById("absent-list");
   const addForm = document.getElementById("add-student-form");
   const nameInput = document.getElementById("new-student-name");
-  const idInput = document.getElementById("student-id");
+  const admissionInput = document.getElementById("admission-number");
   const searchInput = document.getElementById("search-input");
   const searchButton = document.getElementById("search-button");
 
@@ -30,12 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const filtered = students.filter(student =>
           student.name.toLowerCase().includes(query.toLowerCase()) ||
-          student.studentId.includes(query)
+          (student.admissionNumber || "").includes(query)
         );
 
         if (filtered.length === 0) {
           presentList.innerHTML = "<li>No students found.</li>";
-          absentList.innerHTML = "<li>No students found.</li>";
           return;
         }
 
@@ -47,8 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
             absentList.appendChild(li);
           }
         });
-
-        console.log("Rendering", filtered.length, "students");
       });
   }
 
@@ -60,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     header.className = "student-header";
 
     const name = document.createElement("strong");
-    name.textContent = `${student.name} (ID: ${student.studentId})`;
+    name.textContent = `${student.name} (Adm: ${student.admissionNumber})`;
 
     const status = document.createElement("span");
     status.className = student.status;
@@ -123,16 +117,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Remove";
-    deleteBtn.addEventListener("click", () => {
-      if (student.id && confirm(`Remove ${student.name}?`)) {
-        console.log("Attempting to delete student with ID:", student.id);
+    deleteBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (confirm(`Remove ${student.name}?`)) {
         fetch(`${BASE_URL}/${student.id}`, {
           method: "DELETE"
-        }).then(() => {
-          console.log("Deleted successfully. Reloading student list...");
-          searchInput.value = ""; // Clear search input
-          loadStudents();
-        });
+        }).then(() => loadStudents(searchInput.value.trim()));
       }
     });
     buttons.appendChild(deleteBtn);
@@ -145,31 +135,35 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const name = nameInput.value.trim();
-    const studentId = idInput.value.trim();
+    const admissionNumber = admissionInput.value.trim();
 
-    if (!/^\d{4}$/.test(studentId)) {
-      alert("Student ID must be exactly 4 digits.");
+    if (!/^\d{4}$/.test(admissionNumber)) {
+      alert("Admission number must be exactly 4 numeric digits.");
       return;
     }
 
     fetch(BASE_URL)
       .then(res => res.json())
       .then(students => {
-        const nameExists = students.find(s => s.name.toLowerCase() === name.toLowerCase());
+        const nameExists = students.find(
+          s => s.name.toLowerCase() === name.toLowerCase()
+        );
         if (nameExists) {
           alert("Student with this name already exists.");
           return;
         }
 
-        const idExists = students.find(s => s.studentId === studentId);
+        const idExists = students.find(
+          s => s.admissionNumber === admissionNumber
+        );
         if (idExists) {
-          alert("Student ID already exists. Please use a unique 4-digit ID.");
+          alert("Admission number already exists. Use a unique number.");
           return;
         }
 
         const newStudent = {
           name,
-          studentId,
+          admissionNumber,
           status: "present",
           location: "",
           activity: "",

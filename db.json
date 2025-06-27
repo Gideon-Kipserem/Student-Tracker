@@ -1,54 +1,45 @@
 {
   "students": [
     {
-      "id": "4",
-      "name": "Titus Moindi",
-      "studentId": "1004",
-      "status": "absent",
-      "location": "library",
-      "activity": "chemistry",
-      "time": "6/26/2025, 6:32:38 PM"
-    },
-    {
-      "id": "5",
-      "name": "Faith Kipyegon",
-      "studentId": "1005",
-      "status": "present",
-      "location": "",
-      "activity": "",
-      "time": ""
-    },
-    {
-      "id": "57a6",
-      "name": "Eluid Kipchoge",
-      "studentId": "2443",
-      "status": "absent",
-      "location": "library",
-      "activity": "personal studies",
-      "time": "6/26/2025, 5:54:41 PM"
-    },
-    {
-      "id": "a731",
+      "id": "6099",
       "name": "Gideon Kimaiyo",
-      "studentId": "1004",
-      "status": "absent",
-      "location": "library",
-      "activity": "personal studies",
-      "time": "6/26/2025, 5:54:54 PM"
-    },
-    {
-      "id": "2445",
-      "name": "Oscar Kiprop",
-      "studentId": "4567",
+      "admissionNumber": "6767",
       "status": "present",
       "location": "",
       "activity": "",
       "time": ""
     },
     {
-      "id": "3feb",
+      "id": "be30",
       "name": "Denis Munika",
-      "studentId": "3245",
+      "admissionNumber": "8989",
+      "status": "present",
+      "location": "",
+      "activity": "",
+      "time": ""
+    },
+    {
+      "id": "6200",
+      "name": "Eluid Kipchoge",
+      "admissionNumber": "4466",
+      "status": "absent",
+      "location": "library",
+      "activity": "personal studies",
+      "time": "6/27/2025, 11:39:27 AM"
+    },
+    {
+      "id": "0b3f",
+      "name": "Oscar Kiprop",
+      "admissionNumber": "4556",
+      "status": "absent",
+      "location": "lab",
+      "activity": "chemistry",
+      "time": "6/27/2025, 11:39:36 AM"
+    },
+    {
+      "id": "ad31",
+      "name": "Titus moindi",
+      "admissionNumber": "7890",
       "status": "present",
       "location": "",
       "activity": "",
