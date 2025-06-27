@@ -1,55 +1,48 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
   <title>Student Tracker</title>
 
   <!-- External stylesheet -->
   <link rel="stylesheet" href="./css/styles.css" />
 
-  <!--link for font-->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <h1>
-      <p>ELIMU SCHOOL</p>
-      <P>FORM THREE BLUE CLASS LIST</P>
-    </h1>
-  </header>
+  <!-- Landing Section -->
+  <section class="hero">
+    <h1>ELIMU SCHOOL</h1>
+    <h2>Form Three Blue Class Tracker</h2>
+    <p>Monitor student presence, checkout activities, and keep your class organized in real time.</p>
+  </section>
 
   <!-- Add & Search Section -->
   <section class="form-section">
-    
-    <!-- Form to Add New Student -->
     <form id="add-student-form">
       <input type="text" id="new-student-name" placeholder="Student Name" required />
       <input type="text" id="student-id" placeholder="Student ID (4 digits)" required />
       <button type="submit">Add Student</button>
     </form>
 
-    <!-- Search Form -->
     <div class="search">
       <input type="text" id="search-input" placeholder="Search by name or ID..." />
       <button id="search-button">Search</button>
     </div>
   </section>
 
-  <!-- Sections for Present and Absent Students -->
+  <!-- Attendance Lists -->
   <section class="attendance-sections">
-    
-    <!-- Present Students List -->
     <div id="present-section">
       <h2>Present Students</h2>
       <ul id="present-list"></ul>
     </div>
 
-    <!-- Absent Students List -->
     <div id="absent-section">
       <h2>Absent Students</h2>
       <ul id="absent-list"></ul>
@@ -60,13 +53,9 @@
   <div id="checkout-modal" class="modal">
     <div class="modal-content">
       <h3>Check Out Student</h3>
-
-      <!-- Modal Form -->
       <form id="checkout-form">
         <input type="text" id="checkout-location" placeholder="Location" required />
         <input type="text" id="checkout-activity" placeholder="Activity" required />
-
-        <!-- Modal Buttons -->
         <div class="modal-actions">
           <button type="submit">Confirm</button>
           <button type="button" onclick="closeModal()">Cancel</button>
@@ -75,7 +64,12 @@
     </div>
   </div>
 
-  <!-- JavaScript File -->
+  <!-- Footer -->
+  <footer>
+    <p>Built with ❤️ by Gideon Kimaiyo | <a href="https://github.com/Gideon-Kipserem" target="_blank">GitHub</a></p>
+  </footer>
+
+  <!-- JS Script -->
   <script src="./src/index.js"></script>
 </body>
 </html>

@@ -88,10 +88,10 @@ Ensure `index.js` points to this backend API for live use.
 MIT License. See `LICENSE` file for details.
 
 ## Contact
-For issues or contributions, contact via GitHub.
+For issues or contributions, contact via GitHub or email.
   
-  ## email
+  ## Email
   gideonkimaiyo254@gmail.com
 
-  ## github
+  ## Github
  https://github.com/Gideon-Kipserem
