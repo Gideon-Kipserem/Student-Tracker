@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
- const BASE_API = "https://json-server-chr3.onrender.com";
+  const BASE_API = "https://json-server-chr3.onrender.com";
   const BASE_URL = `${BASE_API}/students`;
-
 
   const presentList = document.getElementById("present-list");
   const absentList = document.getElementById("absent-list");
@@ -80,8 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
       details.innerHTML = `<p>${student.name} is in class.</p>`;
     }
 
+    // Only allow toggle for absent students
     header.addEventListener("click", () => {
-      details.classList.toggle("hidden");
+      if (student.status === "absent") {
+        details.classList.toggle("hidden");
+      }
     });
 
     li.appendChild(details);
